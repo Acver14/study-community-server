@@ -1,54 +1,49 @@
 package com.kbb.studycommunity.domain;
 
-import com.kbb.studycommunity.util.LoginTypeKey;
+import com.kbb.studycommunity.util.datetime.JoHaDateTime;
+import com.kbb.studycommunity.util.enumerate.LoginTypeKey;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class User {
-    private long id;
+    @Column
+    @Id
+    private Long id;
+    @Column
     private String nickname;
+    @Column
     private String profile_pic;
-    private String token;
+    @Column
+    private String read_me;
+    @Column
+    private Double temper;
+    @Column
+    private String access_token;
+    @Column
+    private String refresh_token;
+    @Column
     private LoginTypeKey login_type;
+    @Column
     private String login_key;
-    private List<String> interests;
+    @Column
+    @OneToMany
+    @JoinColumn(name = "USER_ID")
+    private List<String> interests = new ArrayList<>();
+    @Column
+    @CreatedDate
+    LocalDateTime created_at;
 
-    public User(long id, String nickname, String profile_pic, String token, LoginTypeKey login_type, String login_key,
-                List<String> interests) {
-        this.id = id;
-        this.nickname = nickname;
-        this.profile_pic = profile_pic;
-        this.token = token;
-        this.login_type = login_type;
-        this.login_key = login_key;
-        this.interests = interests;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public String getProfile_pic() {
-        return profile_pic;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public LoginTypeKey getLogin_type() {
-        return login_type;
-    }
-
-    public String getLogin_key() {
-        return login_key;
-    }
-
-    public List<String> getInterests() {
-        return interests;
+    public User(long id, String nickname, String profileImg, String s, double v, String token, String s1, LoginTypeKey loginType, String loginKey, List<String> interestList) {
     }
 }

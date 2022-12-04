@@ -1,4 +1,4 @@
-package com.kbb.studycommunity.domain;
+package com.kbb.studycommunity.domain.dto;
 
 import java.util.List;
 

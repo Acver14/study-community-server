@@ -2,7 +2,7 @@ package com.kbb.studycommunity.controller;
 
 import com.kbb.studycommunity.config.auth.OAuthAtrributes;
 import com.kbb.studycommunity.service.UserService;
-import com.kbb.studycommunity.util.LoginTypeKey;
+import com.kbb.studycommunity.util.enumerate.LoginTypeKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
 import java.util.Locale;
 import java.util.Map;
 

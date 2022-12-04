@@ -1,9 +1,9 @@
 package com.kbb.studycommunity.service;
 
 import com.kbb.studycommunity.domain.User;
-import com.kbb.studycommunity.domain.UserDTO;
+import com.kbb.studycommunity.domain.dto.UserDTO;
 import com.kbb.studycommunity.repository.UserRepository;
-import com.kbb.studycommunity.util.LoginTypeKey;
+import com.kbb.studycommunity.util.enumerate.LoginTypeKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

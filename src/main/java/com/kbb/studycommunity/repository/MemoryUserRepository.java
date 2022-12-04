@@ -1,7 +1,7 @@
 package com.kbb.studycommunity.repository;
 
 import com.kbb.studycommunity.domain.User;
-import com.kbb.studycommunity.util.LoginTypeKey;
+import com.kbb.studycommunity.util.enumerate.LoginTypeKey;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -27,10 +27,9 @@ public class MemoryUserRepository implements UserRepository {
     @Override
     public void join(String nickname, String profileImg, String token, LoginTypeKey loginType, String loginKey, String interests) {
         long id = sequence++;
-        String[] interestArr = interests.split("/");
+        List<String> interestArr = Arrays.stream(interests.split("/")).toList();
         List<String> interestList = new ArrayList<>();
-        for (String interest : interestArr)
-            interestList.add(interest);
-        userList.put(id, new User(id, nickname, profileImg, token, loginType, loginKey, interestList));
+        interestList.addAll(interestArr);
+        userList.put(id, new User(id, nickname, profileImg, "", 0.0, token, "", loginType, loginKey, interestList));
     }
 }
